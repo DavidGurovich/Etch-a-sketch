@@ -15,15 +15,16 @@ makeRows(16, 16)
 
 // buttons for eraser and clear 
 const interface = document.getElementById('interface')
-const eraser = document.createElement('button');
-eraser.innerText = 'Erase';
-interface.appendChild(eraser);
 
+const gridReset = document.createElement('button')
+gridReset.innerText = "New Grid"
+gridReset.addEventListener('click', newSize);
 const clearAll = document.createElement('button');
 clearAll.innerText = "Clear";
 clearAll.addEventListener('click', handleReset)
-interface.appendChild(clearAll);
 
+interface.appendChild(clearAll);
+interface.appendChild(gridReset);
 function random(number){
     return Math.floor(Math.random() * (number + 1));
 }
@@ -34,7 +35,7 @@ function randomColors (e) {
       }).join(',')})`
       Object.assign(e.target.style, {
         backgroundColor : color,
-        opacity : 0.75
+        opacity : 0.60
       });
     }
 
@@ -44,4 +45,12 @@ function handleReset(e) {
         container.removeChild(container.lastChild)
     }
     makeRows(16, 16)
+}
+
+function newSize(e) {
+    let newGrid = +prompt("Enter the number of squares per side for the new grid:", )
+    while (container.firstChild){
+        container.removeChild(container.lastChild)
+    }
+    makeRows(newGrid, newGrid)
 }

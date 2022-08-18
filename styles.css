@@ -6,13 +6,16 @@
     grid-template-columns: repeat(var(--grid-cols), 1fr);
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     display: grid;
-    grid-gap: 5px;
+    grid-gap: 1px;
 }
 
 .grid-item {
     padding: 1em;
     border: 1px solid #ddd;
     text-align: center;
+    height: 5px;
+    width: 5px;
+    
 }
 button {
     height: 40px;
@@ -31,4 +34,10 @@ h1 {
     font-size: 2rem;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
+}
+
+button:hover {
+    border: 1px solid black;
+    background: #FFF;
+    cursor: pointer;
 }
